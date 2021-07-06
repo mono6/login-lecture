@@ -18,5 +18,17 @@ function login(){
             "Content-Type": "application/json"
         },
         body: JSON.stringify(req)
-    }).then((res)=> res.json()).then((res)=> console.log(res));
+    })
+    .then((res)=> res.json())
+    .then((res)=> {
+        if (res.success){
+            location.href = "/";
+        }else{
+            alert(res.msg);
+        }
+    })
+    .catch((err)=>{
+        console.error(new Error("logining error!"))
+        //console.error("logining error!") 이렇게도 할수 있다. 둘중하나 선택 
+    });
 }
