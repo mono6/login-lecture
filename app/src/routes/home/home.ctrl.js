@@ -1,14 +1,42 @@
-'use strict';
+"use strict";
 
-const home =(req, res) =>{
-    res.render('home/index');
-}
+const output = {
+  home: (req, res) => {
+    res.render("home/index");
+  },
 
-const login = (req,res)=>{
-    res.render('home/login');
-}
+  login: (req, res) => {
+    res.render("home/login");
+  },
+};
 
-module.exports ={
-    home,
-    login,
+const users = {
+    id: ["kim", "kyoung","cheon"],
+    psword : ["1234", "1234", "12345"]
+};
+
+const process = {
+  login: (req, res) => {
+    const id = req.body.id,
+        psword = req.body.psword;
+    console.log(id, psword);
+    console.log(req.body);
+    if (users.id.includes(id)){
+        const idx = users.id.indexOf(id);
+        if (users.psword[idx]===psword){
+            return res.json({
+                sucess:true,
+            });
+        }
+    }
+    return res.json({
+        success: false,
+        msg: "login fail",
+    });
+  },
+};
+
+module.exports = {
+  output,
+  process,
 };
