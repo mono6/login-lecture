@@ -19,9 +19,14 @@ class User {
     return { success: false, msg: "not_exist_id" };
   }
 
-  register() {
+  async register() {
     const client = this.body;
-    UserStorage.save(this.client);
+    try {
+      const response = await UserStorage.save(client);
+      return response;
+    } catch (err) {
+      return { success: false, msg: err };
+    }
   }
 }
 

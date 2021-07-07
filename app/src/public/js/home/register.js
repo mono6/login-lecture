@@ -10,7 +10,7 @@ registerBtn.addEventListener("click", register);
 
 function register() {
     if(!id.value) return alert("GO ID!!");
-  if (psword.value === confirmPsword.value) return alert("invalide_psword");
+  if (psword.value !== confirmPsword.value) return alert("invalide_psword");
 
   const req = {
     id: id.value,

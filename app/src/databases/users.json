@@ -1,5 +1,20 @@
 {
-    "id"     : ["kim", "kyoung", "cheon"],
-    "psword" : ["1234", "1234", "12345"],
-    "name"   : ["aa", "bb", "cc"]
-  }
+	"id": [
+		"kim",
+		"kyoung",
+		"cheon",
+		"kimchi"
+	],
+	"psword": [
+		"1234",
+		"1234",
+		"12345",
+		"123"
+	],
+	"name": [
+		"aa",
+		"bb",
+		"cc",
+		""
+	]
+}
