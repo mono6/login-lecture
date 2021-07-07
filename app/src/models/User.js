@@ -7,17 +7,23 @@ class User {
     this.body = body;
   }
   login() {
-      const body =this.body;
-      const {id, psword}= UserStorage.getUserInfo(body.id);
+      const client =this.body;
+      const {id, psword}= UserStorage.getUserInfo(client.id);
 
       if (id){
-          if(id === body.id && psword === body.psword){
+          if(id === client.id && psword === client.psword){
               return {success:true};
           }
           return {success: false, msg: "fail_psword"};
       }
       return {success: false, msg: "not_exist_id"};
   }
+
+register(){
+    const client =this.body;
+    UserStorage.save(this.client);
+}
+
 }
 
 module.exports = User;
